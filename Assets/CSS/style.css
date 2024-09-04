@@ -303,44 +303,255 @@ body {
 
 /* banner section */
 
+
+/*unfloded banner section */
+.bg-ally-unfloded-banner-section {
+    position: relative;
+    background-color: #050505;
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.bg-ally-unfloded-banner-section::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url("../images/footer-bg5-1-removebg-preview.png") no-repeat;
+    z-index: -1;
+}
+.bg-ally-unfloded-banner-card{
+    max-width: 800px;
+    margin: auto;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+.bg-ally-unfloded-banner-head,
+.bg-ally-unfloded-banner-para {
+    position: relative;
+    
+    z-index: 2;
+}
+
+.bg-ally-unfloded-banner-head {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.bg-ally-unfloded-banner-para {
+    font-size: 16px;
+    color: #d0d0d0;
+}
+/*unfloded banner section */
+
+
+
 /* ally cards container */
-.bg-ally-card-section{
+.bg-ally-card-section {
     background-color: #000000;
     padding-top: 40px;
     padding-bottom: 50px;
+    position: relative;
+    overflow: hidden; 
 }
-.bg-ally-about-cards{
-    background-color: radial-gradient(
-        circle closet-corner at center 125px,
-        #222, black 40%
-    ) no-repeat;
+
+.bg-ally-card-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(9, 9, 9, 0.5); 
+    z-index: 0; 
+}
+
+.container {
+    position: relative;
+    z-index: 1; 
+}
+
+.statistics-left-shape {
+    height: 200px;
+    width: 300px;
+    top: -100px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.statistics-right-shape {
+    height: 300px;
+    width: 300px;
+    bottom: -30px;
+    right: -50px;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+
+.bg-ally-about-cards {
     text-align: center;
     border: 2px solid #747474;
-
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
-    transition: all 0.3s;
-}
-.bg-ally-about-cards:hover{
-    transform: scale(0.9);
-}
-.bg-ally-about-cards-head{
-    display: inline-block;
-  text-transform: uppercase;
-  background: radial-gradient(
-    circle farthest-corner at center center,
-    #ccc,
-    #333
-  ) no-repeat;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
+    transition: transform 0.3s;
+    position: relative; /* Ensure card is above the overlay */
     
 }
-.bg-ally-about-cards-para{
+
+.bg-ally-about-cards:hover {
+    transform: scale(0.9);
+}
+
+.bg-ally-about-cards-head {
+    display: inline-block;
+    text-transform: uppercase;
+    background: radial-gradient(circle farthest-corner at center, #ccc, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-ally-about-cards-para {
     color: #494747;
     font-weight: 600;
+}
+
+
+/* ally cards container */
+
+
+/* ally flow-chart container*/
+.bg-ally-flow-chart-section{
+    background-color: #050505;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+.ally-flow-chart-video{
+    height: 400px;
+    width: 100%;
+}
+/*.ally-flow-chart-overlay{
+    background: rgba(53, 52, 52, 0.5);
+    border: 1px solid #53afbe;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 7px 29px 0px;
+
+
+}*/
+.ally-flow-chart-head{
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 50px;
+}
+.ally-flow-chart-card{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/* ally flow-chart container */
+
+
+
+/* ally-case-card*/
+.bg-ally-case-card-section{
+    background-color:#050505;
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+.bg-ally-case-card{
+    border: 1px solid #333;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 5px;
+}
+.bg-ally-case-card-head{
+    color: #fff;
 
 }
-/* ally cards container */
+.bg-ally-case-card-para{
+    color: #656161;
+    font-size: 16px;
+    font-weight: bold;
+}
+/*ally-case-card */
+
+
+
+
+/* cursor*/
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    animation: cursorAnim .5s infinite alternate;
+    pointer-events: none;
+    z-index: 9999;
+}
+  
+.cursor::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border: 8px solid #0069d9;
+    border-radius: 50%;
+    opacity: .5;
+    top: -8px;
+    left: -8px;
+    animation: cursorAnim2 .5s infinite alternate;
+}
+  
+@keyframes cursorAnim {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.7);
+    }
+}
+  
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.4);
+    }
+}
+  
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+  
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    border: 1px solid #0069d9;
+}
+  
+/* cursor */

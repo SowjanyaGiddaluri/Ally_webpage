@@ -11,3 +11,6 @@ const cursor = document.querySelector('.cursor');
                 cursor.classList.remove("expand");
             }, 500)
         })
+
+        
+        
